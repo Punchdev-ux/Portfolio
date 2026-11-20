@@ -26,17 +26,16 @@ export function BlogCover({
       </div>
     );
   }
-
   return (
     <div className={cn("relative overflow-hidden bg-muted", className)}>
       <Image
-        src={cover}
-        alt=""
-        fill
-        sizes="(max-width: 768px) 100vw, 720px"
-        className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-        priority={priority}
-      />
+      src={cover}
+      alt={`${title} cover`}
+      fill
+      sizes="(max-width: 768px) 100vw, 720px"
+      className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+      priority={priority}
+    />
     </div>
   );
 }

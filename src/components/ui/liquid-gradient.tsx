@@ -64,82 +64,102 @@ type GradientSvgProps = {
 
 const GradientSvg: React.FC<GradientSvgProps> = ({ className, isHovered, colors }) => {
   const rawId = useId();
-  // Sanitize React 19 useId (e.g. :r1:) for safe SVG id and url reference
   const id = `liquid_grad_${rawId.replace(/[^a-zA-Z0-9_-]/g, '_')}`;
+  const fallbackColor = colors.color1 || '#000000';
+
+  const c = {
+    color1: colors.color1 || fallbackColor,
+    color2: colors.color2 || fallbackColor,
+    color3: colors.color3 || fallbackColor,
+    color4: colors.color4 || fallbackColor,
+    color5: colors.color5 || fallbackColor,
+    color6: colors.color6 || fallbackColor,
+    color7: colors.color7 || fallbackColor,
+    color8: colors.color8 || fallbackColor,
+    color9: colors.color9 || fallbackColor,
+    color10: colors.color10 || fallbackColor,
+    color11: colors.color11 || fallbackColor,
+    color12: colors.color12 || fallbackColor,
+    color13: colors.color13 || fallbackColor,
+    color14: colors.color14 || fallbackColor,
+    color15: colors.color15 || fallbackColor,
+    color16: colors.color16 || fallbackColor,
+    color17: colors.color17 || fallbackColor,
+  };
 
   const svgStates: SvgStates = {
     svg1: {
       gradientTransform: 'translate(287.5 280) rotate(-29.0546) scale(689.807 1000)',
       stops: [
-        { offset: 0, stopColor: colors.color1 },
-        { offset: 0.188423, stopColor: colors.color2 },
-        { offset: 0.260417, stopColor: colors.color3 },
-        { offset: 0.328792, stopColor: colors.color4 },
-        { offset: 0.328892, stopColor: colors.color5 },
-        { offset: 0.328992, stopColor: colors.color1 },
-        { offset: 0.442708, stopColor: colors.color6 },
-        { offset: 0.537556, stopColor: colors.color7 },
-        { offset: 0.631738, stopColor: colors.color1 },
-        { offset: 0.725645, stopColor: colors.color8 },
-        { offset: 0.817779, stopColor: colors.color9 },
-        { offset: 0.84375, stopColor: colors.color10 },
-        { offset: 0.90569, stopColor: colors.color1 },
-        { offset: 1, stopColor: colors.color11 },
+        { offset: 0, stopColor: c.color1 },
+        { offset: 0.188423, stopColor: c.color2 },
+        { offset: 0.260417, stopColor: c.color3 },
+        { offset: 0.328792, stopColor: c.color4 },
+        { offset: 0.328892, stopColor: c.color5 },
+        { offset: 0.328992, stopColor: c.color1 },
+        { offset: 0.442708, stopColor: c.color6 },
+        { offset: 0.537556, stopColor: c.color7 },
+        { offset: 0.631738, stopColor: c.color1 },
+        { offset: 0.725645, stopColor: c.color8 },
+        { offset: 0.817779, stopColor: c.color9 },
+        { offset: 0.84375, stopColor: c.color10 },
+        { offset: 0.90569, stopColor: c.color1 },
+        { offset: 1, stopColor: c.color11 },
       ],
     },
     svg2: {
       gradientTransform: 'translate(126.5 418.5) rotate(-64.756) scale(533.444 773.324)',
       stops: [
-        { offset: 0, stopColor: colors.color1 },
-        { offset: 0.104167, stopColor: colors.color12 },
-        { offset: 0.182292, stopColor: colors.color13 },
-        { offset: 0.28125, stopColor: colors.color1 },
-        { offset: 0.328792, stopColor: colors.color4 },
-        { offset: 0.328892, stopColor: colors.color5 },
-        { offset: 0.453125, stopColor: colors.color6 },
-        { offset: 0.515625, stopColor: colors.color7 },
-        { offset: 0.631738, stopColor: colors.color1 },
-        { offset: 0.692708, stopColor: colors.color8 },
-        { offset: 0.75, stopColor: colors.color14 },
-        { offset: 0.817708, stopColor: colors.color9 },
-        { offset: 0.869792, stopColor: colors.color10 },
-        { offset: 1, stopColor: colors.color1 },
+        { offset: 0, stopColor: c.color1 },
+        { offset: 0.104167, stopColor: c.color12 },
+        { offset: 0.182292, stopColor: c.color13 },
+        { offset: 0.28125, stopColor: c.color1 },
+        { offset: 0.328792, stopColor: c.color4 },
+        { offset: 0.328892, stopColor: c.color5 },
+        { offset: 0.453125, stopColor: c.color6 },
+        { offset: 0.515625, stopColor: c.color7 },
+        { offset: 0.631738, stopColor: c.color1 },
+        { offset: 0.692708, stopColor: c.color8 },
+        { offset: 0.75, stopColor: c.color14 },
+        { offset: 0.817708, stopColor: c.color9 },
+        { offset: 0.869792, stopColor: c.color10 },
+        { offset: 1, stopColor: c.color1 },
       ],
     },
     svg3: {
       gradientTransform: 'translate(264.5 339.5) rotate(-42.3022) scale(946.451 1372.05)',
       stops: [
-        { offset: 0, stopColor: colors.color1 },
-        { offset: 0.188423, stopColor: colors.color2 },
-        { offset: 0.307292, stopColor: colors.color1 },
-        { offset: 0.328792, stopColor: colors.color4 },
-        { offset: 0.328892, stopColor: colors.color5 },
-        { offset: 0.442708, stopColor: colors.color15 },
-        { offset: 0.537556, stopColor: colors.color16 },
-        { offset: 0.631738, stopColor: colors.color1 },
-        { offset: 0.725645, stopColor: colors.color17 },
-        { offset: 0.817779, stopColor: colors.color9 },
-        { offset: 0.84375, stopColor: colors.color10 },
-        { offset: 0.90569, stopColor: colors.color1 },
-        { offset: 1, stopColor: colors.color11 },
+        { offset: 0, stopColor: c.color1 },
+        { offset: 0.188423, stopColor: c.color2 },
+        { offset: 0.307292, stopColor: c.color1 },
+        { offset: 0.328792, stopColor: c.color4 },
+        { offset: 0.328892, stopColor: c.color5 },
+        { offset: 0.442708, stopColor: c.color15 },
+        { offset: 0.537556, stopColor: c.color16 },
+        { offset: 0.631738, stopColor: c.color1 },
+        { offset: 0.725645, stopColor: c.color17 },
+        { offset: 0.817779, stopColor: c.color9 },
+        { offset: 0.84375, stopColor: c.color10 },
+        { offset: 0.90569, stopColor: c.color1 },
+        { offset: 1, stopColor: c.color11 },
       ],
     },
     svg4: {
       gradientTransform: 'translate(860.5 420) rotate(-153.984) scale(957.528 1388.11)',
       stops: [
-        { offset: 0.109375, stopColor: colors.color11 },
-        { offset: 0.171875, stopColor: colors.color2 },
-        { offset: 0.260417, stopColor: colors.color13 },
-        { offset: 0.328792, stopColor: colors.color4 },
-        { offset: 0.328892, stopColor: colors.color5 },
-        { offset: 0.328992, stopColor: colors.color1 },
-        { offset: 0.442708, stopColor: colors.color6 },
-        { offset: 0.515625, stopColor: colors.color7 },
-        { offset: 0.631738, stopColor: colors.color1 },
-        { offset: 0.692708, stopColor: colors.color8 },
-        { offset: 0.817708, stopColor: colors.color9 },
-        { offset: 0.869792, stopColor: colors.color10 },
-        { offset: 1, stopColor: colors.color11 },
+        { offset: 0.109375, stopColor: c.color11 },
+        { offset: 0.171875, stopColor: c.color2 },
+        { offset: 0.260417, stopColor: c.color13 },
+        { offset: 0.328792, stopColor: c.color4 },
+        { offset: 0.328892, stopColor: c.color5 },
+        { offset: 0.328992, stopColor: c.color1 },
+        { offset: 0.442708, stopColor: c.color6 },
+        { offset: 0.515625, stopColor: c.color7 },
+        { offset: 0.631738, stopColor: c.color1 },
+        { offset: 0.692708, stopColor: c.color8 },
+        { offset: 0.817708, stopColor: c.color9 },
+        { offset: 0.869792, stopColor: c.color10 },
+        { offset: 1, stopColor: c.color11 },
       ],
     },
   };
@@ -167,6 +187,9 @@ const GradientSvg: React.FC<GradientSvgProps> = ({ className, isHovered, colors 
           cy="0"
           r="1"
           gradientUnits="userSpaceOnUse"
+          initial={{
+            gradientTransform: gradientTransform[0],
+          }}
           animate={{
             gradientTransform,
           }}
@@ -212,20 +235,20 @@ export const Liquid: React.FC<LiquidProps> = ({ isHovered, colors }) => {
       {Array.from({ length: 7 }).map((_, index) => (
         <div
           key={index}
-          className={`absolute ${index < 3 ? 'w-[443px] h-[121px]' : 'w-[756px] h-[207px]'} ${
+          className={`absolute ${index < 3 ? 'w-110.75 h-30.25' : 'w-189 h-51.75'} ${
             index === 0
               ? 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mix-blend-difference'
               : index === 1
                 ? 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[164.971deg] mix-blend-difference'
                 : index === 2
-                  ? 'top-1/2 left-1/2 -translate-x-[53%] -translate-y-[53%] rotate-[-11.61deg] mix-blend-difference'
+                  ? 'top-1/2 left-1/2 translate-x-[-53%] translate-y-[-53%] rotate-[-11.61deg] mix-blend-difference'
                   : index === 3
-                    ? 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-[57%] rotate-[-179.012deg] mix-blend-difference'
+                    ? 'top-1/2 left-1/2 -translate-x-1/2 translate-y-[-57%] rotate-[-179.012deg] mix-blend-difference'
                     : index === 4
-                      ? 'top-1/2 left-1/2 -translate-x-[57%] -translate-y-1/2 rotate-[-29.722deg] mix-blend-difference'
+                      ? 'top-1/2 left-1/2 translate-x-[-57%] -translate-y-1/2 rotate-[-29.722deg] mix-blend-difference'
                       : index === 5
-                        ? 'top-1/2 left-1/2 -translate-x-[62%] -translate-y-[24%] rotate-[160.227deg] mix-blend-difference'
-                        : 'top-1/2 left-1/2 -translate-x-[67%] -translate-y-[29%] rotate-180 mix-blend-hard-light'
+                        ? 'top-1/2 left-1/2 translate-x-[-62%] translate-y-[-24%] rotate-[160.227deg] mix-blend-difference'
+                        : 'top-1/2 left-1/2 translate-x-[-67%] translate-y-[-29%] rotate-180 mix-blend-hard-light'
           }`}
         >
           <GradientSvg className="w-full h-full" isHovered={isHovered} colors={colors} />

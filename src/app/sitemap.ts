@@ -17,8 +17,29 @@ const staticRoutes: MetadataRoute.Sitemap = [
 
 function parseDate(value: string | undefined): Date | undefined {
   if (!value) return undefined;
+
   const parsed = Date.parse(value);
-  return Number.isNaN(parsed) ? undefined : new Date(parsed);
+  if (!Number.isNaN(parsed)) {
+    return new Date(parsed);
+  }
+
+  // Handle "Mon YYYY" strings like "Jan 2026"
+  const fallback = Date.parse(`1 ${value}`);
+  if (!Number.isNaN(fallback)) {
+    return new Date(fallback);
+  }
+
+  return undefined;
+}
+
+function parseYearEnd(year: string | number | undefined): Date | undefined {
+  if (!year) return undefined;
+
+  const match = String(year).match(/\b(19|20)\d{2}\b/);
+  if (!match) return undefined;
+
+  const parsed = new Date(`${match[0]}-12-31T00:00:00Z`);
+  return Number.isNaN(parsed.getTime()) ? undefined : parsed;
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -36,7 +57,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const achievementRoutes: MetadataRoute.Sitemap = achievements.map((item) => ({
     url: `${siteConfig.url}/achievements/${item.slug}`,
-    lastModified: new Date(`${item.year}-12-31`),
+    lastModified: parseYearEnd(item.year),
     changeFrequency: "yearly",
     priority: 0.6,
   }));
