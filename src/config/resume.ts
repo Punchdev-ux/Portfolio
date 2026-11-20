@@ -3,9 +3,9 @@ export const resumeConfig = {
   description: "A quick look at my experience, projects, and skills.",
   fileId: "18g3wGVYqM9IJBjCzp240VIDDVwYA1MiO",
   viewUrl:
-    "https://drive.google.com/file/d/1DyZcwAC4HAeVyCBycyTh_6VTsaya-nj_/view?usp=sharing",
+    "https://docs.google.com/document/d/1uc4FY8w59fNi9n17S-4gmldUa_qPJHvOa3qCSh5vyXw/edit?usp=sharing",
   embedUrl:
-    "https://drive.google.com/file/d/1DyZcwAC4HAeVyCBycyTh_6VTsaya-nj_/preview",
+    "https://docs.google.com/document/d/1uc4FY8w59fNi9n17S-4gmldUa_qPJHvOa3qCSh5vyXw/preview",
   downloadUrl:
-    "https://drive.google.com/uc?export=download&id=1DyZcwAC4HAeVyCBycyTh_6VTsaya-nj_",
+    "https://docs.google.com/uc?export=download&id=1uc4FY8w59fNi9n17S-4gmldUa_qPJHvOa3qCSh5vyXw",
 };
