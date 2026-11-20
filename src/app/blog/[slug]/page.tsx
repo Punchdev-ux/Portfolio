@@ -17,7 +17,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = await params;
+  const slug = decodeURIComponent((await params).slug);
   const post = await getBlogPost(slug);
   if (!post) return {};
   return createPageMetadata({
@@ -34,7 +34,7 @@ export default async function BlogPostPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = await params;
+  const slug = decodeURIComponent((await params).slug);
   const post = await getBlogPost(slug);
   if (!post) notFound();
 
@@ -51,7 +51,7 @@ export default async function BlogPostPage({
         <BlogCover
           title={post.title}
           cover={post.cover}
-          className="mt-6 aspect-[2/1] w-full rounded-2xl"
+          className="mt-6 aspect-2/1 w-full rounded-2xl"
           priority
         />
 

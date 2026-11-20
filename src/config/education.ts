@@ -1,17 +1,18 @@
 export const education = [
   {
-    school: "IPS Academy Indore",
-    degree: "Bachelor of Technology · Computer Software Engineering",
-    period: "2022—2026",
+    school: "Eduvos",
+    degree: "BSc. Information Technology (Software Engineering)",
+    period: "2023—2026",
   },
-  {
-    school: "Kendriya Vidyalaya",
-    degree: "Mathematics & Science",
-    period: "2008—2021",
-  },
+
 ];
 
 export const skills = [
+  "Java",
+  "Spring Boot",
+  "Hibernate",
+  "MySQL",
+  "Postman",
   "Python",
   "TypeScript",
   "React",

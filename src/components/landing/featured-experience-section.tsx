@@ -20,7 +20,7 @@ type FeaturedItem =
       href: string;
     }
   | {
-      type: "achievement";
+      type: "education";
       title: string;
       subtitle: string;
       period: string;
@@ -44,10 +44,7 @@ const techIcons: Record<string, string> = {
   TypeScript: "typescript",
 };
 
-const achievementTech: Record<string, string[]> = {
-  "sih-2025": ["Python", "React", "TypeScript", "Machine Learning"],
-  "sih-2024": ["Next.js", "React", "TypeScript", "PostgreSQL"],
-};
+
 
 function experienceToFeatured(item: ExperienceItem): FeaturedItem {
   return {
@@ -56,7 +53,7 @@ function experienceToFeatured(item: ExperienceItem): FeaturedItem {
     subtitle: item.role,
     period: item.periodLong,
     location: item.locationLong.trim(),
-    image: "/assets/Valency-Energy-Logo.jpeg",
+    image: "/assets/Caledon-Code.jpeg",
     details: item.details ?? [],
     tech: item.tech ?? [],
     href: "/work",
@@ -65,14 +62,14 @@ function experienceToFeatured(item: ExperienceItem): FeaturedItem {
 
 function achievementToFeatured(item: Achievement): FeaturedItem {
   return {
-    type: "achievement",
+    type: "education",
     title: item.organization,
     subtitle: item.title,
     period: item.periodLong,
-    location: "Achievement",
+    location: "Education",
     image: item.image ?? "/assets/og-image.jpg",
     details: item.details ?? [],
-    tech: achievementTech[item.slug] ?? [],
+    tech: [],
     href: `/achievements/${item.slug}`,
   };
 }
@@ -133,7 +130,7 @@ function FeaturedExperienceItem({
           <p className="mt-1 text-xl text-foreground">{item.subtitle}</p>
         </div>
 
-        <div className="text-left text-base text-secondary sm:min-w-[190px] sm:text-right sm:text-lg">
+        <div className="text-left text-base text-secondary sm:min-w-47.5 sm:text-right sm:text-lg">
           <p>{item.period}</p>
           <p className="mt-1">{item.location}</p>
         </div>

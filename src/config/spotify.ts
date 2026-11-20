@@ -1,9 +1,9 @@
 export const lastPlayedTrack = {
-  title: "Apocalypse",
-  artist: "Cigarettes After Sex",
-  album: "Cigarettes After Sex",
-  albumArt: "/assets/apocalypse-cover.jpg",
-  songUrl: "https://open.spotify.com/track/1oAwsWBovWRIp7qLMGPIet",
+  title: "Over",
+  artist: "Black Radio III",
+  album: "Black Radio III",
+  albumArt: "/assets/Over-cover.jpeg",
+  songUrl: "https://open.spotify.com/track/07vCZWjQXstwOCWLG6HYdg",
   /** Put your licensed local audio at public/assets/apocalypse.mp3 to play it on-site. */
-  audioSrc: "/assets/apocalypse.mp3",
+  audioSrc: "/assets/Over.mpeg3",
 };

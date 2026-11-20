@@ -1,0 +1,137 @@
+---
+title: "Banking App — Core Banking Console"
+description: "A full-stack banking management application for customer accounts and financial transactions."
+---
+
+# Banking App — Core Banking Console
+
+**Repository:** [Punchdev-ux/Banking-app](https://github.com/Punchdev-ux/Banking-app)
+
+**Short description:** A full-stack banking management application built with Java, Spring Boot, React, and MySQL that provides APIs for managing customer accounts, processing financial transactions, and maintaining banking records.
+
+## Overview
+
+The Banking App, also described as **Core Banking Console**, is a banking management system with a Spring Boot backend, a React-based frontend console, and a MySQL database.
+
+The application is designed to support operations such as creating and retrieving accounts, deposits, and withdrawals. Its backend separates API handling, business rules, and database access into distinct layers.
+
+This is a development/demo project, not evidence of a certified production banking platform or authorisation to handle real customer funds.
+
+## Technology stack
+
+| Technology | Role |
+| --- | --- |
+| Java 17 | Main backend programming language |
+| Spring Boot 3.2.5 | Backend framework and REST API development |
+| Spring Web | HTTP endpoints and web functionality |
+| Spring Data JPA | Repository and persistence abstractions |
+| Hibernate 6 | Object-relational mapping |
+| MySQL 8.0 | Relational database |
+| React | Frontend user interface |
+| Apache Tomcat | Embedded application server |
+| Project Lombok | Reduces repetitive Java code |
+| DTOs | Structures data exchanged between application layers |
+| Maven | Build automation and dependency management |
+
+## How it works
+
+The application follows a layered architecture.
+
+1. **Frontend interaction:** A user performs an operation in the React interface.
+2. **API request:** React sends an HTTP request, commonly with JSON data, to the Spring Boot backend.
+3. **Controller:** A REST controller receives the request and routes it to the appropriate application operation.
+4. **DTO and mapping:** Request and response data are represented and converted using data transfer objects and mapping logic where implemented.
+5. **Service layer:** The service applies business rules, such as checking whether an account has sufficient funds for a withdrawal.
+6. **Repository layer:** Spring Data JPA repositories handle database operations.
+7. **Database:** MySQL stores and retrieves account and transaction information.
+8. **API response:** The backend returns the operation result to the frontend.
+
+## Architecture
+
+```text
+User
+ |
+ v
+React frontend
+ |
+ | HTTP / JSON
+ v
+Spring Boot REST API
+ |
+ v
+Controller layer
+ |
+ v
+DTOs and mapping
+ |
+ v
+Service layer
+ |  Banking business rules
+ v
+Repository layer
+ |  Spring Data JPA / Hibernate
+ v
+MySQL database
+ |
+ v
+API response to React
+```
+
+## Example: withdrawal workflow
+
+A withdrawal illustrates how the layers work together:
+
+1. A user submits a withdrawal request for an account.
+2. The backend receives the request through a REST endpoint.
+3. The service retrieves the account and checks the applicable business rules.
+4. If the request is valid and sufficient funds are available, the service processes the transaction.
+5. The persistence layer saves the resulting account and transaction changes.
+6. The backend returns a success or failure response.
+
+Financial applications need careful transaction handling. Database transactions, concurrency controls, validation, and auditability are important to prevent inconsistent balances or duplicate processing.
+
+## Why it is useful
+
+Banking systems need reliable ways to manage accounts and process financial operations while preserving consistent records.
+
+A structured banking application demonstrates how a backend can enforce business rules, expose operations through APIs, and persist financial data in a relational database.
+
+Potential use cases and learning applications include:
+
+- Banking and account-management prototypes.
+- FinTech application development.
+- Financial transaction workflows.
+- Internal banking administration tools.
+- Learning layered backend architecture and relational persistence.
+
+## Main features documented
+
+- Customer account creation and retrieval.
+- Deposit operations.
+- Withdrawal operations.
+- Account management endpoints.
+- Transaction processing.
+- Audit trails and security events.
+- Role concepts including Admin, Manager, Teller, and Auditor.
+- Protections and business rules intended to prevent inconsistent transaction processing.
+
+## Advantages and considerations
+
+### Advantages
+
+- Clear separation between frontend, API, business logic, and persistence.
+- Uses widely adopted Java and Spring technologies.
+- Relational storage through MySQL.
+- REST APIs allow other clients to communicate with the backend.
+- Demonstrates important financial-domain concepts such as validation and transaction handling.
+
+### Considerations
+
+- Financial calculations should use appropriate decimal types rather than floating-point arithmetic.
+- Transaction integrity and concurrent requests require careful testing.
+- Authentication, authorisation, audit logging, and secrets management are essential for a real financial system.
+- A demo project should not be used to process real funds without extensive security, compliance, and operational review.
+
+## Summary
+
+The Banking App is a full-stack banking management prototype that combines a React interface with a Java and Spring Boot backend and a MySQL database. It demonstrates how account operations and financial transaction rules can be exposed through REST APIs and managed through a layered application architecture.

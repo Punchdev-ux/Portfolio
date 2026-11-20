@@ -32,7 +32,7 @@ interface GitHubButtonProps {
 }
 
 export const GitHubButton: React.FC<GitHubButtonProps> = ({
-  href = 'https://github.com/GitHpriyanshu23/priyanshu-portfolio',
+  href = 'https://github.com/Punchdev-ux/ndumiso-portfolio',
   className,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -46,10 +46,10 @@ export const GitHubButton: React.FC<GitHubButtonProps> = ({
         className="group relative inline-flex items-center justify-center w-36 h-10 select-none cursor-pointer"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        aria-label="Star Priyanshu's portfolio on GitHub"
+        aria-label="Star Ndumiso's portfolio on GitHub"
       >
         {/* Ambient colored backdrop glow (no grey box/corners) */}
-        <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 opacity-40 blur-md transition-all duration-500 group-hover:opacity-75 group-hover:blur-lg pointer-events-none" />
+        <div className="absolute -inset-1 rounded-2xl bg-linear-to-r from-blue-600 via-indigo-500 to-purple-600 opacity-40 blur-md transition-all duration-500 group-hover:opacity-75 group-hover:blur-lg pointer-events-none" />
 
         {/* Outer subtle shadow */}
         <div className="absolute inset-0 rounded-xl bg-black/40 blur-sm pointer-events-none" />
@@ -66,7 +66,7 @@ export const GitHubButton: React.FC<GitHubButtonProps> = ({
 
           {/* Edge gloss / spark overlay */}
           <span className="absolute inset-0 rounded-xl border border-white/30 mix-blend-overlay pointer-events-none" />
-          <span className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/50 to-transparent pointer-events-none" />
+          <span className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white/50 to-transparent pointer-events-none" />
         </div>
 
         {/* Interactive content layer */}
@@ -78,8 +78,8 @@ export const GitHubButton: React.FC<GitHubButtonProps> = ({
               className={cn(
                 'absolute inset-0 size-5 text-white fill-white transition-all duration-300 ease-out',
                 isHovered
-                  ? 'scale-0 rotate-[-45deg] opacity-0'
-                  : 'scale-100 rotate-0 opacity-100 group-hover:scale-0 group-hover:rotate-[-45deg] group-hover:opacity-0'
+                  ? 'scale-0 -rotate-45 opacity-0'
+                  : 'scale-100 rotate-0 opacity-100 group-hover:scale-0 group-hover:-rotate-45 group-hover:opacity-0'
               )}
             />
             <Star

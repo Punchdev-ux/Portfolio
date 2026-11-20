@@ -14,6 +14,14 @@ export type ContentItem = {
 
 const contentRoot = path.join(process.cwd(), "content");
 
+export function normalizeSlug(slug: string): string {
+  return decodeURIComponent(slug)
+    .toLowerCase()
+    .replace(/['",]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 async function readMdxFiles(dir: string): Promise<ContentItem[]> {
   try {
     const fullDir = path.join(contentRoot, dir);
@@ -24,8 +32,10 @@ async function readMdxFiles(dir: string): Promise<ContentItem[]> {
       mdxFiles.map(async (file) => {
         const raw = await fs.readFile(path.join(fullDir, file), "utf8");
         const { data, content } = matter(raw);
+        const rawSlug = data.slug ? String(data.slug) : file.replace(/\.mdx$/, "");
+
         return {
-          slug: file.replace(/\.mdx$/, ""),
+          slug: normalizeSlug(rawSlug),
           title: String(data.title ?? file),
           description: String(data.description ?? ""),
           date: String(data.date ?? ""),
@@ -47,15 +57,19 @@ export async function getBlogPosts() {
 }
 
 export async function getBlogPost(slug: string) {
+  const cleanSlug = normalizeSlug(slug);
   const posts = await getBlogPosts();
-  return posts.find((post) => post.slug === slug) ?? null;
+  return posts.find((post) => post.slug === cleanSlug);
 }
+
+export const getPostBySlug = getBlogPost;
 
 export async function getProjectPosts() {
   return readMdxFiles("projects");
 }
 
 export async function getProjectPost(slug: string) {
+  const cleanSlug = normalizeSlug(slug);
   const posts = await getProjectPosts();
-  return posts.find((post) => post.slug === slug) ?? null;
+  return posts.find((post) => post.slug === cleanSlug);
 }

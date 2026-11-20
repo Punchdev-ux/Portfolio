@@ -5,45 +5,31 @@ export type Favourite = {
 
 export const favouriteMovies: Favourite[] = [
   {
-    title: "The Social Network",
-    cover: "/assets/favourites/the-social-network.png",
-  },
-  {
     title: "Whiplash",
     cover: "/assets/favourites/whiplash.png",
   },
   {
-    title: "The Founder",
-    cover: "/assets/favourites/the-founder.png",
+    title: "The Perks of Being a Wallflower",
+    cover: "/assets/favourites/perks-of-being-a-wallflower.png",
   },
   {
-    title: "The Wolf of Wall Street",
-    cover: "/assets/favourites/the-wolf-of-wall-street.png",
+    title: "The creator",
+    cover: "/assets/favourites/the-creator.png",
   },
   {
-    title: "The Big Short",
-    cover: "/assets/favourites/the-big-short.png",
+    title: "Wall E",
+    cover: "/assets/favourites/wall-e.jpeg",
   },
   {
     title: "The Pursuit of Happyness",
     cover: "/assets/favourites/the-pursuit-of-happiness.png",
   },
-  {
-    title: "American Psycho",
-    cover: "/assets/favourites/american-psycho.png",
-  },
-  {
-    title: "Nightcrawler",
-    cover: "/assets/favourites/nightcrawler.png",
-  },
+
   {
     title: "Fight Club",
     cover: "/assets/favourites/fight-club.png",
   },
-  {
-    title: "Dumb Money",
-    cover: "/assets/favourites/dumb-money.png",
-  },
+
 ];
 
 export const favouriteSeries: Favourite[] = [
@@ -52,7 +38,7 @@ export const favouriteSeries: Favourite[] = [
     cover: "/assets/favourites/silicon-valley.png",
   },
   {
-    title: "Dark",
-    cover: "/assets/favourites/dark.png",
+    title: "Brooklyn Nine-Nine",
+    cover: "/assets/favourites/brooklyn-99.png",
   },
 ];

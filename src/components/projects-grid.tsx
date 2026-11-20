@@ -21,7 +21,7 @@ export function ProjectCard({ project, index = 0 }: { project: Project; index?: 
     >
       <div
         className={cn(
-          "relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-muted sm:aspect-[16/11]",
+          "relative flex aspect-16/10 items-center justify-center overflow-hidden bg-muted sm:aspect-16/11",
           !project.cover && ["bg-linear-to-br", project.gradient],
         )}
       >

@@ -3,9 +3,9 @@ import { heroConfig } from "@/config/hero";
 export const aboutConfig = {
   headline: ["From curious experiments", "to building with AI."],
   intro:
-    "I'm Priyanshu Urmaliya — an **AI engineer** and **full-stack developer** who enjoys turning messy ideas into working products. I care about the details: clean APIs, useful interfaces, and systems that actually **ship**.",
+    "I'm Ndumiso Nkomo — an **full-stack developer** and **RAG/AI engineer** I enjoy building products from rough ideas. I care about creating clean APIs, user-friendly interfaces, and systems that work well in practice and **ships**.",
   quote:
-    "I believe the best builders learn in public, ship early, and refine until the product feels obvious to use.",
+    "I believe the best builders learn openly, ship early, and keep improving until the product feels easy to use.",
   traits: ["Curious", "Builder", "Focused", "Persistent"] as const,
   traitStyles: {
     Curious:
@@ -20,15 +20,15 @@ export const aboutConfig = {
   meta: [
     { label: "Location", value: heroConfig.location },
     { label: "Status", value: "Open to opportunities" },
-    { label: "Focus", value: "AI · RAG · Full-stack" },
+    { label: "Focus", value: "Full-stack · AI · RAG" },
   ],
   story: {
     title: "How it started",
     paragraphs: [
-      "It started in school with a simple question: how does software actually work? I was fascinated by how a few lines of code could become something people use every day. That **curiosity** pushed me toward engineering — and eventually toward **AI**.",
-      "College became a mix of coursework, **hackathons**, and late-night builds. I failed plenty along the way — exams, competitions, and projects that never made it past version one. But each attempt taught me something about **scope**, **teamwork**, and staying calm when things break.",
-      "Hackathons changed the pace. **Smart India Hackathon** pushed me to ship under pressure with a team, communicate clearly, and demo something real — not just a slide deck. That experience shaped how I build today: fast iterations, tight feedback loops, and focus on what **users** actually need.",
-      "Now I spend most of my time at the intersection of **AI and product** — RAG systems, LLM workflows, and full-stack apps that connect models to real interfaces. I'm still figuring things out, but I'm doing it by **building**.",
+      "It all started in high school when we were given a final-year project to build a website. What began as just another assignment quickly became something more. As I worked on my own project and helped classmates with theirs, I realized how much I enjoyed coding. There was something satisfying about turning ideas into something real that people could use.",
+      "That early interest grew into a genuine passion for technology and problem-solving. In college, I spent my time balancing coursework with personal projects, constantly experimenting with new tools and technologies. Not everything worked the first time. There were failed exams, unfinished projects, and plenty of mistakes along the way. But each setback taught me valuable lessons about persistence, problem-solving, and staying calm when things don't go according to plan.",
+      "Today, I spend most of my time building at the intersection of **AI and software engineering**. I'm particularly interested in **LLM applications**, **RAG systems**, and full-stack products that connect powerful models to real-world user experiences. What excites me most isn't just the technology itself, but finding practical ways to turn complex ideas into tools that people actually find useful.",
+      "I'm still learning, still experimenting, and still figuring things out. The difference now is that I do it by **building**.",
     ],
   },
   principles: {
@@ -59,24 +59,20 @@ export const aboutConfig = {
   beyond: {
     title: "Beyond the code",
     paragraphs: [
-      "Outside of work, you'll find me writing on Medium, exploring new tools, or chasing the next **hackathon** idea. I like **learning in public** and sharing what actually worked — and what didn't.",
+      "Outside of work, you'll find me exploring new tools and I like **learning in public** and sharing what actually worked — and what didn't.",
       "I'm drawn to builders who combine **technical depth** with **clarity**. That's the kind of engineer I want to become.",
     ],
   },
   connectLinks: [
     {
       name: "Email",
-      href: "mailto:priyanshuurmaliya23011@gmail.com",
+      href: "mailto:nkomondumiso43@gmail.com",
       icon: "mail" as const,
     },
-    {
-      name: "X",
-      href: "https://x.com/imdevPU23",
-      icon: "x" as const,
-    },
+    
     {
       name: "GitHub",
-      href: "https://github.com/GitHpriyanshu23",
+      href: "https://github.com/Punchdev-ux",
       icon: "github" as const,
     },
   ],

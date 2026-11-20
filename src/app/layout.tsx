@@ -9,7 +9,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { siteConfig } from "@/config/meta";
 import { PersonJsonLd } from "@/components/person-json-ld";
-import { ScrollReveal } from "@/components/scroll-reveal";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -36,20 +35,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background font-sans antialiased`}
         suppressHydrationWarning
       >
         <PersonJsonLd />
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+        <ThemeProvider defaultTheme="light" enableSystem disableTransitionOnChange>
           <TooltipProvider>
             <div className="relative flex min-h-screen flex-col bg-green-grid">
               <SiteHeader />
               <main className="page-content flex-1">{children}</main>
-              <ScrollReveal />
               <SiteFooter />
-              <div className="pointer-events-none fixed inset-x-0 bottom-0 z-10 h-[60px] bg-gradient-to-t from-background/80 to-transparent [mask-image:linear-gradient(to_top,black_50%,transparent)]" />
+              <div className="pointer-events-none fixed inset-x-0 bottom-0 z-10 h-15 bg-linear-to-t from-background/80 to-transparent mask-[linear-gradient(to_top,black_50%,transparent)]" />
               <CommandMenu />
               <CursorPet />
             </div>

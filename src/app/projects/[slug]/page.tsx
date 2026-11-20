@@ -101,7 +101,7 @@ export default async function ProjectDetailPage({
             shadowIntensity="md"
             borderRadius="18px"
             blurIntensity="md"
-            className="relative mt-8 aspect-[16/9]"
+            className="relative mt-8 aspect-video"
           >
             <Image
               src={cover}

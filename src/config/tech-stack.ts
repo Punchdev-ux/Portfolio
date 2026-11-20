@@ -4,6 +4,7 @@ export type TechItem = {
 };
 
 export const techStack: TechItem[] = [
+  { name: "Java", icon: "java" },
   { name: "TypeScript", icon: "typescript" },
   { name: "Python", icon: "python" },
   { name: "React", icon: "react" },
@@ -14,12 +15,12 @@ export const techStack: TechItem[] = [
   { name: "Git", icon: "git" },
   { name: "GitHub", icon: "github" },
   { name: "Docker", icon: "docker" },
-  { name: "PostgreSQL", icon: "postgresql" },
+  { name: "MySQL", icon: "mysql" },
   { name: "MongoDB", icon: "mongodb" },
-  { name: "FAISS", icon: "meta" },
+  { name: "Spring boot", icon: "springboot" },
   { name: "ChromaDB", icon: "/assets/chromadb.png" },
-  { name: "Cloudflare", icon: "cloudflare" },
+  { name: "Firebase", icon: "firebase" },
   { name: "Vercel", icon: "vercel" },
   { name: "Postman", icon: "postman" },
-  { name: "Figma", icon: "figma" },
+  { name: "Kotlin", icon: "kotlin" },
 ];

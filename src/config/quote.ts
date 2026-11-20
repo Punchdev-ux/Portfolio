@@ -1,13 +1,13 @@
 export const quoteConfig = {
-  text: "You are what you believe in. You become that which you believe you can become",
-  author: "Bhagavad Gita",
+  text: "It always seems impossible until it's done.",
+  author: "Nelson Mandela",
 };
 
 export const rotatingTitles = [
   "AI Engineer",
   "Full Stack Developer",
   "Software Engineer",
-  "Traveller",
+  "Web Developer",
   "Curious Builder",
   "Creator",
   "Always ready to learn new things"

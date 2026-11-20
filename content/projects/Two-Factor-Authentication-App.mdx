@@ -1,0 +1,102 @@
+---
+title: "Firebase Authentication App"
+description: "An Android application demonstrating account registration and email/password authentication with Firebase."
+---
+
+# Firebase Authentication App
+
+**Repository:** [Punchdev-ux/firebaseAuth](https://github.com/Punchdev-ux/firebaseAuth)
+
+**Short description:** An Android-based authentication application built with Firebase that enables users to register and log in using email and password authentication.
+
+## Overview
+
+The Firebase Authentication project is an Android application that demonstrates how a mobile app can authenticate users with Firebase Authentication.
+
+Users can create an account and sign in with email and password credentials. Firebase handles the authentication process and returns the result to the Android application, which can then respond according to the user's authentication state.
+
+The repository describes the project as a **Two-Factor Authentication (2FA)** application. However, the documented setup specifically enables Firebase Email/Password authentication. A separate second verification factor, such as an authenticator code or SMS verification, should not be assumed unless it is implemented in the source code.
+
+## Technology stack
+
+| Technology | Role |
+| --- | --- |
+| Android Studio | Development environment for building, running, and testing the Android app |
+| Firebase | Backend platform used by the application |
+| Firebase Authentication | Manages user registration and sign-in with email and password |
+| Gradle / Kotlin DSL build files | Configures the Android build and project dependencies |
+
+The repository documentation does not, by itself, establish the exact programming language or UI framework. Confirm those details from the app's source files before listing them as part of the stack.
+
+## How it works
+
+1. **Configure Firebase:** Create or select a Firebase project and register the Android application.
+2. **Connect the app:** Add the Firebase configuration file, `google-services.json`, to the Android project as described in the repository setup instructions.
+3. **Enable authentication:** Turn on the Email/Password sign-in provider in the Firebase console.
+4. **Register a user:** The user enters an email address and password in the app.
+5. **Authenticate:** The application sends the credentials to Firebase Authentication.
+6. **Handle the result:** Firebase returns a success or failure result. The app can show an error or continue to the authenticated area.
+7. **Manage authentication state:** The app checks whether a user is currently signed in and can display the appropriate screen.
+
+## Architecture
+
+```text
+User
+ |
+ v
+Android application
+ |
+ | Email + password authentication request
+ v
+Firebase Authentication
+ |
+ +----------------------+
+ |                      |
+ v                      v
+Authentication        Authentication
+successful            unsuccessful
+ |                      |
+ v                      v
+Authenticated         Display error /
+application area      allow retry
+```
+
+## Why it is useful
+
+Authentication is a fundamental part of applications that provide personal accounts or protected features. Implementing it through a managed authentication service can reduce the amount of account infrastructure an application needs to build and maintain itself.
+
+Potential use cases include:
+
+- Student portals and learning applications.
+- E-commerce accounts.
+- Personal account-management apps.
+- Business and employee applications.
+- Mobile apps with user-specific content.
+
+## Main capabilities documented
+
+- Firebase project integration.
+- Email/password authentication setup.
+- User registration and sign-in workflow.
+- Authentication result handling.
+- Android project configuration through Gradle.
+
+## Advantages and considerations
+
+### Advantages
+
+- Uses a managed authentication service.
+- Avoids building password storage and verification infrastructure from scratch.
+- Can be integrated with other Firebase services.
+- Provides a practical example of connecting an Android app to a backend authentication provider.
+
+### Considerations
+
+- Firebase configuration must match the Android application.
+- Authentication errors and account states should be handled clearly.
+- Production applications need appropriate access rules and security practices.
+- The 2FA label should only be used as a verified feature if a genuine second authentication factor is implemented.
+
+## Summary
+
+The Firebase Authentication App demonstrates how an Android application can use Firebase to register users and authenticate them with email and password credentials. It provides a foundation for adding protected, account-based functionality to a mobile application.

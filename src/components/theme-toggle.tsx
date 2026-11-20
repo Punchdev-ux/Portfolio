@@ -1,9 +1,9 @@
 "use client";
 
-import { useTheme } from "next-themes";
 import { Moon, Sun } from "@phosphor-icons/react";
 import { useEffect, useState } from "react";
 import { playThemeClickSound } from "@/lib/theme-click-sound";
+import { useTheme } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 
 export function ThemeToggle({ className }: { className?: string }) {

@@ -12,16 +12,16 @@ export type ExperienceItem = {
 
 export const experience: ExperienceItem[] = [
   {
-    company: "Valency Energy",
-    role: "AI/ML Intern",
-    periodShort: "May 25 – Dec 25",
-    periodLong: "May 2025 – December 2025",
-    locationShort: "Remote, IN",
-    locationLong: "Remote, India ",
+    company: "Caledon Code",
+    role: "Part-time Web Developer",
+    periodShort: "Oct 25 – Nov 25",
+    periodLong: "October 2025 – November 2025",
+    locationShort: "Remote, PTA",
+    locationLong: "Remote, Pretoria ",
     details: [
-      "Developed and optimized machine learning models for renewable energy demand forecasting using Python with real-time IoT data.",
-      "Built automated data pipelines and performed feature engineering to enhance analytics accuracy and system performance.",
+      "Refactored frontend components using React (Vite) and Tailwind CSS, accelerating page load speeds by 25% across 15+ pixel perfect, Figma-compliant UI components.",
+      "Delivered a fully functional web prototype meeting 100% of client specifications within a 14-day rapid-delivery sprint, under real world client delivery pressure",
     ],
-    tech: ["Python", "Machine Learning", "IoT", "Data Pipelines", "Feature Engineering"],
+    tech: ["React", "Vite", "Tailwind CSS"],
   },
 ];

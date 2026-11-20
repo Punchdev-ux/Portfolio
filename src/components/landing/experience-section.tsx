@@ -70,7 +70,7 @@ function ExperienceCard({
       {open && (
         <div
           id={`experience-${job.company}`}
-          className="animate-in-up-on-view mt-5 space-y-5 sm:ml-[76px]"
+          className="animate-in-up-on-view mt-5 space-y-5 sm:ml-19"
         >
           <div className="space-y-2 text-base leading-relaxed text-foreground">
             {job.details?.map((detail) => (

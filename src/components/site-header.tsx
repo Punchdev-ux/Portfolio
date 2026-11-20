@@ -39,7 +39,7 @@ function MoreMenu() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-[calc(100%+0.5rem)] z-50 min-w-[10rem] rounded-xl border border-border bg-card p-1.5 shadow-lg">
+        <div className="absolute right-0 top-[calc(100%+0.5rem)] z-50 min-w-40 rounded-xl border border-border bg-card p-1.5 shadow-lg">
           {moreNav.map((item) => (
             <Link
               key={item.href}

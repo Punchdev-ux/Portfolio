@@ -1,10 +1,10 @@
 export const siteConfig = {
-  name: "Priyanshu Urmaliya",
-  title: "Priyanshu Urmaliya | Software Engineer & AI Developer",
+  name: "Ndumiso",
+  title: "Ndumiso Nkomo | Software Engineer & AI Developer",
   description:
-    "Portfolio of Priyanshu Urmaliya. Building AI tools, full-stack applications, open-source projects, and developer products.",
-  url: "https://www.upriyanshu.tech",
-  githubUsername: "GitHpriyanshu23",
+    "Portfolio of Ndumiso Nkomo. Building AI tools, full-stack applications, open-source projects, and developer products.",
+  url: "https://www.unkomo.tech",
+  githubUsername: "Punchdev-ux",
   twitterHandle: "@imdevPU23",
   ogImage: "/assets/og-image.jpg",
   ogImageWidth: 1024,

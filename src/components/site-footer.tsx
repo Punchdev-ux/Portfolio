@@ -5,8 +5,7 @@ import { siteConfig } from "@/config/meta";
 import { GitHubButton } from "@/components/ui/github-button";
 
 const footerSocial = [
-  { name: "X", href: "https://x.com/imdevPU23", icon: XLogo },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/priyanshu-urmaliya-1183b425a/", icon: LinkedinLogo },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/ndumiso-nkomo-72230238b/", icon: LinkedinLogo },
 ];
 
 export function SiteFooter() {

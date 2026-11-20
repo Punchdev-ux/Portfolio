@@ -5,7 +5,7 @@ import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { achievements } from "@/config/achievements";
 
-export function AchievementsSection({
+export function EducationSection({
   limit,
   showAllLink = false,
 }: {
@@ -17,7 +17,7 @@ export function AchievementsSection({
   return (
     <Container>
       <div className="mb-4 flex items-end justify-between gap-4">
-        <SectionHeading title="Achievements" uppercase className="mb-0" />
+        <SectionHeading title="Education" uppercase className="mb-0" />
         {showAllLink && (
           <Link
             href="/achievements"

@@ -47,7 +47,7 @@ export default async function AchievementDetailPage({
           className="inline-flex items-center gap-1.5 text-sm text-secondary transition-colors hover:text-foreground"
         >
           <ArrowLeft className="size-4" />
-          Back to achievements
+          Back to education
         </Link>
 
         <LiquidGlassCard
@@ -59,7 +59,7 @@ export default async function AchievementDetailPage({
         >
           <AchievementPhoto
             achievement={achievement}
-            className="aspect-[16/10] w-full sm:aspect-[2/1]"
+            className="aspect-16/10 w-full sm:aspect-2/1"
             priority
           />
           <div className="space-y-4 p-5 sm:p-6">

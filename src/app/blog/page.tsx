@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import { BlogCover } from "@/components/blog-cover";
 import { Container } from "@/components/container";
@@ -9,12 +10,32 @@ import { createPageMetadata, pageTitle } from "@/lib/metadata";
 export const metadata = createPageMetadata({
   title: pageTitle("Blog"),
   description:
-    "Notes on building, grief, growth, and lessons from the journey by Priyanshu Urmaliya.",
+    "Notes on building, grief, growth, and lessons from the journey by Ndumiso Nkomo.",
   path: "/blog",
 });
 
-export default async function BlogPage() {
+function normalizeSlug(slug: string): string {
+  return decodeURIComponent(slug)
+    .toLowerCase()
+    .replace(/['",]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const posts = await getBlogPosts();
+  const post = posts.find(
+    (candidate) => normalizeSlug(candidate.slug) === normalizeSlug(slug),
+  );
+
+  if (!post) {
+    notFound();
+  }
 
   return (
     <div className="space-y-10 pb-16 pt-8">
@@ -27,36 +48,42 @@ export default async function BlogPage() {
 
       <Container>
         <div className="flex flex-col gap-8">
-          {posts.map((post) => (
-            <LiquidGlassCard
-              key={post.slug}
-              glowIntensity="sm"
-              shadowIntensity="md"
-              borderRadius="18px"
-              blurIntensity="md"
-              className="group"
-            >
-              <Link href={`/blog/${post.slug}`} className="block">
-                <BlogCover
-                  title={post.title}
-                  cover={post.cover}
-                  className="aspect-[2/1] w-full"
-                />
-                <div className="p-5 sm:p-6">
-                  <div className="flex items-start justify-between gap-3">
-                    <p className="text-xs uppercase tracking-wider text-secondary">{post.date}</p>
-                    <ArrowUpRight className="size-4 shrink-0 text-secondary opacity-0 transition-opacity group-hover:opacity-100" />
+          {posts.map((post) => {
+            const cleanSlug = normalizeSlug(post.slug);
+
+            return (
+              <LiquidGlassCard
+                key={cleanSlug}
+                glowIntensity="sm"
+                shadowIntensity="md"
+                borderRadius="18px"
+                blurIntensity="md"
+                className="group"
+              >
+                <Link href={`/blog/${cleanSlug}`} className="block">
+                  <BlogCover
+                    title={post.title}
+                    cover={post.cover}
+                    className="aspect-2/1 w-full"
+                  />
+                  <div className="p-5 sm:p-6">
+                    <div className="flex items-start justify-between gap-3">
+                      <p className="text-xs uppercase tracking-wider text-secondary">
+                        {post.date}
+                      </p>
+                      <ArrowUpRight className="size-4 shrink-0 text-secondary opacity-0 transition-opacity group-hover:opacity-100" />
+                    </div>
+                    <h2 className="mt-2 text-xl font-bold tracking-tight sm:text-2xl">
+                      {post.title}
+                    </h2>
+                    <p className="mt-3 text-sm leading-relaxed text-secondary sm:text-base">
+                      {post.description}
+                    </p>
                   </div>
-                  <h2 className="mt-2 text-xl font-bold tracking-tight sm:text-2xl">
-                    {post.title}
-                  </h2>
-                  <p className="mt-3 text-sm leading-relaxed text-secondary sm:text-base">
-                    {post.description}
-                  </p>
-                </div>
-              </Link>
-            </LiquidGlassCard>
-          ))}
+                </Link>
+              </LiquidGlassCard>
+            );
+          })}
         </div>
       </Container>
     </div>

@@ -36,8 +36,8 @@ export function Hero() {
         <div className="corner-frame relative h-[calc(var(--grid-cell-size)*4)] overflow-visible">
           <div className="relative size-full overflow-hidden border border-foreground/15">
           <Image
-            src="/assets/priyanshu-header.jpeg"
-            alt="Priyanshu header"
+            src="/assets/ndumiso-header.jpeg"
+            alt="Ndumiso header"
             fill
             priority
             sizes="(max-width: 640px) 100vw, 720px"
@@ -49,7 +49,7 @@ export function Hero() {
 
         <TimezoneWidget className="-mt-3 self-end" />
 
-        <div className="-mt-[calc(var(--grid-cell-size)*2)] flex items-end gap-4">
+        <div className="mt-[calc(-2*var(--grid-cell-size))] flex items-end gap-4">
           <div className="relative z-30 shrink-0 rounded-full bg-background p-1">
             <ProfileAvatar />
           </div>

@@ -1,0 +1,130 @@
+---
+title: "Local RAG Agent"
+description: "A locally hosted AI document assistant powered by Retrieval-Augmented Generation."
+---
+
+# Local RAG Agent
+
+**Repository:** [Punchdev-ux/Local-RAG-agent](https://github.com/Punchdev-ux/Local-RAG-agent)
+
+**Short description:** A locally hosted AI-powered document assistant that uses Retrieval-Augmented Generation (RAG) to search, retrieve, and generate answers from personal documents while keeping processing local.
+
+## Overview
+
+The Local RAG Agent is an AI-powered document question-answering application. Users can ask natural-language questions about their own documents instead of manually opening files and searching through them.
+
+It uses **Retrieval-Augmented Generation (RAG)**: the system retrieves relevant passages from indexed documents and supplies them to a language model as context for generating an answer.
+
+The local-first approach gives users more control over their documents and reduces reliance on external AI APIs. Local execution alone does not guarantee complete privacy; network configuration, application security, and model downloads still matter.
+
+## Technology stack
+
+| Technology | Role |
+| --- | --- |
+| Next.js | Frontend and chat interface |
+| FastAPI | Python backend and API layer |
+| ChromaDB | Vector storage and semantic retrieval |
+| Ollama | Runs local language and embedding models |
+| `nomic-embed-text` | Converts text into embedding vectors |
+| Llama 3.2 | Generates natural-language answers |
+| Cross-encoder reranker | Reorders retrieved passages by relevance |
+| Faster Whisper | Transcribes supported audio/video content |
+| Docker Compose | Helps configure and run application services |
+
+## How it works
+
+The application has two main workflows: document ingestion and question answering.
+
+### 1. Document ingestion
+
+1. **Load documents:** The backend reads supported documents from its configured data location.
+2. **Extract text:** Text is extracted from the source files.
+3. **Split into chunks:** Long text is divided into smaller passages. The documented default is 500 characters per chunk with a 50-character overlap.
+4. **Create embeddings:** Ollama runs `nomic-embed-text` to convert each passage into a numerical vector.
+5. **Store the content:** ChromaDB stores the vectors alongside associated document information for later retrieval.
+
+### 2. Question answering
+
+1. **Ask a question:** The user submits a question through the Next.js interface.
+2. **Create a query embedding:** The question is converted into a vector using the embedding model.
+3. **Retrieve relevant passages:** ChromaDB searches for document chunks with similar semantic meaning.
+4. **Rerank results:** A cross-encoder scores and reorders the retrieved passages for relevance.
+5. **Build context:** The strongest passages are combined with the user's question.
+6. **Generate an answer:** Ollama runs the selected language model, with Llama 3.2 documented as the default, to produce a response grounded in the retrieved context.
+7. **Stream the answer:** FastAPI streams the response to the frontend using Server-Sent Events (SSE), allowing text to appear progressively.
+
+## Architecture
+
+```text
+User
+ |
+ v
+Next.js frontend
+ |
+ | HTTP requests / streamed response
+ v
+FastAPI backend
+ |
+ +--------------------+
+ |                    |
+ v                    v
+ChromaDB             Ollama
+Vector retrieval     Embeddings + LLM
+ |                    ^
+ v                    |
+Retrieved passages --+
+ |
+ v
+Reranking and context preparation
+ |
+ v
+Generated answer
+ |
+ v
+Next.js chat interface
+```
+
+## Why it is useful
+
+Traditional language models do not automatically know the contents of a user's private files. RAG connects a language model to a searchable collection of documents, allowing it to answer questions using information specific to those files.
+
+Potential use cases include:
+
+- **Education:** Ask questions about lecture notes, textbooks, and study material.
+- **Research:** Find relevant information across multiple papers.
+- **Business:** Search internal policies, reports, and documentation.
+- **Software development:** Query technical documentation and project files.
+- **Personal knowledge management:** Build a searchable assistant around a personal document collection.
+
+## Main capabilities
+
+- Local document ingestion and indexing.
+- Semantic search over indexed content.
+- Retrieval reranking to improve relevance.
+- Local language-model inference through Ollama.
+- Streaming chat responses.
+- Audio/video transcription with Faster Whisper.
+- Persistent vector storage.
+- Model selection and Markdown response rendering.
+
+## Advantages and considerations
+
+### Advantages
+
+- Can run language and embedding models locally.
+- Gives users control over their document collection.
+- Searches by meaning rather than exact keyword matches alone.
+- Uses a modular frontend, backend, retrieval, and model architecture.
+- Can be extended with additional document types and models.
+
+### Considerations
+
+- Local models require sufficient memory and processing power.
+- Indexing large collections can take time.
+- Answer quality depends on document extraction, chunking, embeddings, retrieval, and reranking.
+- Generated answers can still be incorrect, so important claims should be checked against source documents.
+- Local hosting does not by itself guarantee security or privacy.
+
+## Summary
+
+The Local RAG Agent combines a web-based chat interface, a Python API, vector search, and locally hosted AI models to make personal documents searchable through natural-language questions. Its central idea is to retrieve relevant source material first, then use that material to help the language model produce a useful answer.

@@ -10,56 +10,24 @@ export type Achievement = {
   image?: string;
   /** Pinterest-style photo gallery on the detail page */
   gallery?: string[];
+  tech?: string[];
   featured?: boolean;
 };
 
 export const achievements: Achievement[] = [
   {
-    slug: "sih-2025",
-    title: "Runner-Up",
-    organization: "Smart India Hackathon 2025",
-    year: "2025",
-    periodShort: "Aug 25",
-    periodLong: "August 2025",
+    slug: "Eduvos-Pretoria, Gauteng",
+    title: "BSc. Information Technology (Software Engineering)",
+    organization: "Eduvos",
+    year: "2023-2026",
+    periodShort: "feb 26 - may 26",
+    periodLong: "Febuary 23 - May 26",
     details: [
-      "National-level hackathon runner-up with team BruteForce_X.",
-      "Built and demoed an AI-powered solution under tight deadlines.",
-      "Protsahan Award — ₹25,000 at the SIH Software Edition Grand Finale.",
+      "Pursued a Bachelor of Science in Information Technology with a specialization in Software Engineering at Eduvos, Pretoria.",
+      "The program emphasizes practical skills in software development, covering areas such as programming in Java, data structures and algorithms, mobile app development, and software architecture design. Through a blend of theoretical knowledge and hands-on projects, I am building a strong foundation to contribute effectively to the tech industry.",
     ],
-    image: "/assets/achievements/sih-2025/01.png",
-    gallery: [
-      "/assets/achievements/sih-2025/01.png",
-      "/assets/achievements/sih-2025/02.png",
-      "/assets/achievements/sih-2025/03.png",
-      "/assets/achievements/sih-2025/04.png",
-      "/assets/achievements/sih-2025/05.png",
-      "/assets/achievements/sih-2025/06.png",
-      "/assets/achievements/sih-2025/07.png",
-    ],
-    featured: true,
-  },
-  {
-    slug: "sih-2024",
-    title: "Finalist",
-    organization: "Smart India Hackathon 2024",
-    year: "2024",
-    periodShort: "Dec 24",
-    periodLong: "December 2024",
-    details: [
-      "Finalist at SIH 2024 Grand Finale with Team AURA (PS ID: SIH1620).",
-      "Represented IPS Academy Institute of Engineering & Science, Indore.",
-      "Shipped a working prototype under pressure — focused on scope, speed, and clear communication.",
-    ],
-    image: "/assets/achievements/sih-2024/01.png",
-    gallery: [
-      "/assets/achievements/sih-2024/02.png",
-      "/assets/achievements/sih-2024/03.png",
-      "/assets/achievements/sih-2024/04.png",
-      "/assets/achievements/sih-2024/05.png",
-      "/assets/achievements/sih-2024/06.png",
-      "/assets/achievements/sih-2024/07.png",
-      "/assets/achievements/sih-2024/08.png",
-    ],
+    image: "/assets/achievements/sih-2025/og_eduvos.jpg",
+    tech: ["Programming in Java", "Data Structures and Algorithms in Java", "Mobile App Development", "Database Systems", "Web Development & e-Commerce"],
     featured: true,
   },
 ];
