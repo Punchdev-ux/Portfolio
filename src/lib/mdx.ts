@@ -15,7 +15,14 @@ export type ContentItem = {
 const contentRoot = path.join(process.cwd(), "content");
 
 export function normalizeSlug(slug: string): string {
-  return decodeURIComponent(slug)
+  let decodedSlug = slug;
+  try {
+    decodedSlug = decodeURIComponent(slug);
+  } catch {
+    decodedSlug = slug;
+  }
+
+  return decodedSlug
     .toLowerCase()
     .replace(/['",]/g, "")
     .replace(/[^a-z0-9]+/g, "-")

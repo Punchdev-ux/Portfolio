@@ -1,89 +1,61 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
+import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
 import { BlogCover } from "@/components/blog-cover";
 import { Container } from "@/components/container";
-import { LiquidGlassCard } from "@/components/ui/liquid-glass";
 import { getBlogPosts } from "@/lib/mdx";
 import { createPageMetadata, pageTitle } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
   title: pageTitle("Blog"),
-  description:
-    "Notes on building, grief, growth, and lessons from the journey by Ndumiso Nkomo.",
+  description: "Articles on software, AI, personal growth, and life.",
   path: "/blog",
 });
 
-function normalizeSlug(slug: string): string {
-  return decodeURIComponent(slug)
-    .toLowerCase()
-    .replace(/['",]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
-export default async function BlogPostPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+export default async function BlogPage() {
   const posts = await getBlogPosts();
-  const post = posts.find(
-    (candidate) => normalizeSlug(candidate.slug) === normalizeSlug(slug),
-  );
-
-  if (!post) {
-    notFound();
-  }
 
   return (
-    <div className="space-y-10 pb-16 pt-8">
+    <div className="space-y-8 pb-16 pt-8">
       <Container>
-        <h1 className="text-3xl font-bold tracking-tight">Blog</h1>
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-sm text-secondary transition-colors hover:text-primary"
+        >
+          <ArrowLeft className="size-4" />
+          Back to home
+        </Link>
+        <h1 className="mt-6 text-3xl font-bold tracking-tight">Blog</h1>
         <p className="mt-3 text-secondary">
-          Notes on building, grief, growth, and lessons from the journey.
+          Articles on software, AI, personal growth, and life.
         </p>
       </Container>
 
       <Container>
-        <div className="flex flex-col gap-8">
-          {posts.map((post) => {
-            const cleanSlug = normalizeSlug(post.slug);
-
-            return (
-              <LiquidGlassCard
-                key={cleanSlug}
-                glowIntensity="sm"
-                shadowIntensity="md"
-                borderRadius="18px"
-                blurIntensity="md"
-                className="group"
-              >
-                <Link href={`/blog/${cleanSlug}`} className="block">
-                  <BlogCover
-                    title={post.title}
-                    cover={post.cover}
-                    className="aspect-2/1 w-full"
-                  />
-                  <div className="p-5 sm:p-6">
-                    <div className="flex items-start justify-between gap-3">
-                      <p className="text-xs uppercase tracking-wider text-secondary">
-                        {post.date}
-                      </p>
-                      <ArrowUpRight className="size-4 shrink-0 text-secondary opacity-0 transition-opacity group-hover:opacity-100" />
-                    </div>
-                    <h2 className="mt-2 text-xl font-bold tracking-tight sm:text-2xl">
-                      {post.title}
-                    </h2>
-                    <p className="mt-3 text-sm leading-relaxed text-secondary sm:text-base">
-                      {post.description}
-                    </p>
-                  </div>
-                </Link>
-              </LiquidGlassCard>
-            );
-          })}
+        <div className="grid gap-6 sm:grid-cols-2">
+          {posts.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="group overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-foreground/25"
+            >
+              <BlogCover
+                title={post.title}
+                cover={post.cover}
+                className="aspect-2/1 w-full"
+              />
+              <div className="p-5">
+                <p className="text-xs uppercase tracking-wider text-secondary">
+                  {post.date}
+                </p>
+                <h2 className="mt-2 text-xl font-semibold tracking-tight">
+                  {post.title}
+                </h2>
+                <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-secondary">
+                  {post.description}
+                </p>
+              </div>
+            </Link>
+          ))}
         </div>
       </Container>
     </div>

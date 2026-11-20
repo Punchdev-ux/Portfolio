@@ -4,7 +4,7 @@ export type TechItem = {
 };
 
 export const techStack: TechItem[] = [
-  { name: "Java", icon: "java" },
+  { name: "Java", icon: "openjdk" },
   { name: "TypeScript", icon: "typescript" },
   { name: "Python", icon: "python" },
   { name: "React", icon: "react" },

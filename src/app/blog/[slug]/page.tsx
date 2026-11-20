@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { BlogCover } from "@/components/blog-cover";
 import { Container } from "@/components/container";
 import { MdxContent } from "@/components/mdx-content";
@@ -17,7 +17,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const slug = decodeURIComponent((await params).slug);
+  const slug = (await params).slug;
   const post = await getBlogPost(slug);
   if (!post) return {};
   return createPageMetadata({
@@ -34,9 +34,10 @@ export default async function BlogPostPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const slug = decodeURIComponent((await params).slug);
+  const slug = (await params).slug;
   const post = await getBlogPost(slug);
   if (!post) notFound();
+  if (slug !== post.slug) redirect(`/blog/${post.slug}`);
 
   return (
     <div className="pb-16 pt-8">

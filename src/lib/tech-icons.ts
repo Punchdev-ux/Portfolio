@@ -1,4 +1,5 @@
 export const techIconMap: Record<string, string> = {
+  Java: "openjdk",
   TypeScript: "typescript",
   JavaScript: "javascript",
   CSS: "css",
