@@ -3,7 +3,7 @@ import { heroConfig } from "@/config/hero";
 export const aboutConfig = {
   headline: ["From curious experiments", "to building with AI."],
   intro:
-    "I'm Ndumiso Nkomo — an **full-stack developer** and **RAG/AI engineer** I enjoy building products from rough ideas. I care about creating clean APIs, user-friendly interfaces, and systems that work well in practice and **ships**.",
+    "I'm Ndumiso Nkomo — a **full-stack developer** and **RAG engineer** I enjoy building products from rough ideas. I care about creating clean APIs, user-friendly interfaces, and systems that work well in practice and **ships**.",
   quote:
     "I believe the best builders learn openly, ship early, and keep improving until the product feels easy to use.",
   traits: ["Curious", "Builder", "Focused", "Persistent"] as const,
@@ -20,7 +20,7 @@ export const aboutConfig = {
   meta: [
     { label: "Location", value: heroConfig.location },
     { label: "Status", value: "Open to opportunities" },
-    { label: "Focus", value: "Full-stack · AI · RAG" },
+    { label: "Focus", value: "Full-stack · RAG" },
   ],
   story: {
     title: "How it started",

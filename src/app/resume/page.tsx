@@ -53,8 +53,8 @@ export default function ResumePage() {
         >
           <iframe
             src={resumeConfig.embedUrl}
-            title="Priyanshu Urmaliya resume"
-            className="aspect-[3/4] w-full min-h-[70vh] bg-muted sm:aspect-auto sm:min-h-[80vh]"
+            title="Ndumiso Nkomo resume"
+            className="aspect-3/4 w-full min-h-[70vh] bg-muted sm:aspect-auto sm:min-h-[80vh]"
             allow="autoplay"
           />
         </LiquidGlassCard>

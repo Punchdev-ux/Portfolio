@@ -2,7 +2,7 @@ export const heroConfig = {
   name: "Ndumiso Nkomo",
   email: "nkomondumiso43@gmail.com",
   calendarUrl: "https://cal.com/ndumiso-nkomo/15min?overlayCalendar=true",
-  bio: "AI engineer and full-stack developer building RAG systems, LLM apps, and real-world products.",
+  bio: "Full-stack developer and building RAG systems, and real-world products.",
   avatar: "/assets/avatar.jpeg",
   avatarSmile: "/assets/avatar-smile.png",
   timezone: "Africa/Johannesburg",
